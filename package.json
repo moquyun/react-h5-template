@@ -1,0 +1,87 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "dev": "npm start",
+    "dev:test": "UMI_ENV=test umi dev",
+    "build:dev": "umi g tmp && cross-env UMI_ENV=dev umi build",
+    "build:test": "umi g tmp && cross-env UMI_ENV=test umi build",
+    "build:uat": "umi g tmp && cross-env UMI_ENV=uat umi build",
+    "build:prod": "umi g tmp && cross-env UMI_ENV=prod umi build",
+    "build": "npm run build:prod",
+    "test": "umi test",
+    "fixlint": "eslint --fix *.ts src mock",
+    "lint:report": "eslint --ext .tsx,.ts src -f checkstyle -o report_zacc_eslint_js.xml; exit 0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.0.6",
+    "@ckeditor/ckeditor5-build-decoupled-document": "^21.0.0",
+    "@ckeditor/ckeditor5-react": "^2.1.0",
+    "ahooks": "^2.1.0",
+    "zarm": "^2.5.3",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.19",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-sticky": "^6.0.3",
+    "react-zmage": "^0.8.5-beta.36",
+    "umi-request": "^1.3.5",
+    "uuid": "^3.3.3",
+    "wangeditor": "^3.1.1",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+"@umijs/plugin-sass": "^1.1.1",
+"sass-loader": "^10.0.2",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "@umijs/fabric": "^2.2.0",
+    "@umijs/plugin-blocks": "^2.0.5",
+    "@umijs/preset-react": "^1.5.15",
+    "@umijs/preset-ui": "^2.2.6",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-config-za": "^2.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^7.3.0",
+    "mockjs": "^1.1.0",
+    "react-test-renderer": "^16.7.0",
+    "stylelint": "^13.0.0",
+    "stylelint-checkstyle-formatter": "^0.1.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-za": "^0.1.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "typescript": "^3.9.3",
+    "umi": "^3.2.19",
+    "umi-types": "^0.5.14"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "lint-staged && commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  }
+}
