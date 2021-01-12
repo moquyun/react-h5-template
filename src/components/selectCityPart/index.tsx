@@ -8,7 +8,7 @@ import styles from './index.less'
 import * as types from './interfaces'
 import { PartOperation } from './interfaces/enums'
 import { commonApi } from './sdkLocation'
-import { Citys } from '@/api'
+// import { Citys } from '@/api'
 import { Icon } from 'zarm'
 import { ReactComponent as positionAddress } from './icon/address.svg'
 import errorHandle from '@/api/middleware/errorHandle'
@@ -94,23 +94,23 @@ function SelectCityPart(props: PropTypes) {
    */
   async function fetchCityList() {
     try {
-      Citys.getCityList({ city: curentCity?.cityId || 145, cityId: curentCity?.cityId || 145, platform: 1 }).then(data => {
-        if (Number(data.respCode) === 0) {
-          setDataSource(genData(dataSource, data.cityList))
-          setHotCity(data.hotCities)
-          setHistoryCities(data.historyCities)
-          if (!JSON.parse(getLocalStorage('cityList')) || (getLocalStorage('cityList') != JSON.stringify(data.cityList))) {
-            setLocalStorage('cityList', data.cityList)
-          }
-          if (!JSON.parse(getLocalStorage('hotCities')) || (getLocalStorage('hotCities') != JSON.stringify(data.hotCities))) {
-            setLocalStorage('hotCities', data.hotCities)
-          }
-          if (!JSON.parse(getLocalStorage('historyCities')) || (getLocalStorage('historyCities') != JSON.stringify(data.historyCities))) {
-            setLocalStorage('historyCities', data.historyCities)
-          }
-          setShowLoading(false)
-        }
-      })
+      // Citys.getCityList({ city: curentCity?.cityId || 145, cityId: curentCity?.cityId || 145, platform: 1 }).then(data => {
+      //   if (Number(data.respCode) === 0) {
+      //     setDataSource(genData(dataSource, data.cityList))
+      //     setHotCity(data.hotCities)
+      //     setHistoryCities(data.historyCities)
+      //     if (!JSON.parse(getLocalStorage('cityList')) || (getLocalStorage('cityList') != JSON.stringify(data.cityList))) {
+      //       setLocalStorage('cityList', data.cityList)
+      //     }
+      //     if (!JSON.parse(getLocalStorage('hotCities')) || (getLocalStorage('hotCities') != JSON.stringify(data.hotCities))) {
+      //       setLocalStorage('hotCities', data.hotCities)
+      //     }
+      //     if (!JSON.parse(getLocalStorage('historyCities')) || (getLocalStorage('historyCities') != JSON.stringify(data.historyCities))) {
+      //       setLocalStorage('historyCities', data.historyCities)
+      //     }
+      //     setShowLoading(false)
+      //   }
+      // })
     } catch (error) {
       console.log(error)
       setShowLoading(false)
